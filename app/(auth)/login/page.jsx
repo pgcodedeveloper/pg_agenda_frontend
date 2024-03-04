@@ -14,7 +14,7 @@ export default function Login() {
 
     const loginGoogle = async() =>{
         try {
-            const {data} = await axios.get('http://localhost:5000/api/users/');
+            const {data} = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}`);
             router.push(data);
         } catch (error) {
             console.log(error);
