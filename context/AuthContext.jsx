@@ -16,7 +16,7 @@ const AuthContext = ({children}) => {
         setCargando(true);
         try {
             const userRef = JSON.parse(user);
-            const { data } = await axios.get(`http://localhost:5000/api/users/get-user?refresh_token=${userRef?.refreshToken || null}`);
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/get-user?refresh_token=${userRef?.refreshToken || null}`);
             
             localStorage.setItem('user', JSON.stringify(data));
             setUsuario(JSON.stringify(data));
